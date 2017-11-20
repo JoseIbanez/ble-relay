@@ -1,6 +1,6 @@
 # BLE Relay
 
-Bluethooth low energy driven relays
+Bluetooth low energy driven relays
 
 # Hardware
 * HM-10
