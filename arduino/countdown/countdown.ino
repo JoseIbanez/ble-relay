@@ -1,8 +1,15 @@
 #include <stdio.h>
 #include <string.h>
-
 #include <SoftwareSerial.h>
+
+#define RELAY1 4
+#define RELAY2 5
+#define RELAY3 6
+#define RELAY4 7
+
 SoftwareSerial bleSerial(2, 3); // RX, TX
+
+
 
 // Main vars
 int curTime = 0;
@@ -22,6 +29,16 @@ void setup() {
   
   // send an intro:
   Serial.println("Count down:");
+
+  // all down
+
+  pinMode(RELAY1, OUTPUT);
+  pinMode(RELAY2, OUTPUT);
+  pinMode(RELAY3, OUTPUT);
+  pinMode(RELAY4, OUTPUT);
+
+  relayStatus = "0000";
+  updateGPIO(relayStatus);
 }
 
 void loop() {
@@ -74,20 +91,51 @@ int inputParse(String input) {
     Serial.println("Relay status: " + relayStatus);
   }
 
+
+
 }
 
 
 int updateGPIO(String status) {
 
+
+
   bleSerial.print(status);
+  Serial.println(status);
 
-  for (int index=0 ; index < status.length() ; index++ )
+  if (relayStatus.length() != 4) {
+    return(-1);
+  }  
 
-    if (status.charAt(index) == '1' ){
-      Serial.println("Pos "+String(index)+ ": ON ");
-    } else {
-      Serial.println("Pos "+String(index)+ ": OFF ");
-   }
+
+  // Relay 1
+  if (status.charAt(0) == '1') {
+    digitalWrite(RELAY1,1);
+  } else {
+    digitalWrite(RELAY1,0);
+  }
+
+  // Relay 2
+  if (status.charAt(1) == '1') {
+    digitalWrite(RELAY2,1);
+  } else {
+    digitalWrite(RELAY2,0);
+  }
+
+  // Relay 3
+  if (status.charAt(2) == '1') {
+    digitalWrite(RELAY3,1);
+  } else {
+    digitalWrite(RELAY3,0);
+  }
+
+  // Relay 4
+  if (status.charAt(3) == '1') {
+    digitalWrite(RELAY4,1);
+  } else {
+    digitalWrite(RELAY4,0);
+  }
+
 
 }
 
