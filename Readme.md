@@ -19,7 +19,7 @@ Bluetooth low energy driven relays
 - https://drive.google.com/file/d/0B-M9mRnKKpvSbTBrOGlnNllMWFU/view
 - ftp://imall.iteadstudio.com/Modules/IM130614001_Serial_Port_BLE_Module_Master_Slave_HM-10/DS_IM130614001_Serial_Port_BLE_Module_Master_Slave_HM-10.pdf
 - https://medium.com/@enriqueramrezmanzaneda/controlling-a-digital-potentiometer-with-an-android-device-over-ble-using-arduino-1347547e375a
-
+- https://github.com/nickswalker/ble-dev-kit/wiki/HM-10-Pinout
 
 
 # Application serial protocol

@@ -53,12 +53,11 @@ void loop() {
 
 int inputParse(String input) {
 
-  Serial.println(input);
-
   char delimiter[] = ";";
   char* ptr;
   char buf[sizeof(sample)];
 
+  Serial.println(input);
   input.toCharArray(buf, sizeof(buf));
 
   // Get TimeOut
